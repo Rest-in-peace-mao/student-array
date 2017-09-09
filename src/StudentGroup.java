@@ -310,6 +310,16 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student getNextStudent(Student student) {
+        if (student == null) {
+            throw new IllegalArgumentException();
+        }
+        else {
+            for(int i = 0; i < students.length; i++)
+                if (students[i] == student && i != students.length - 1)
+                    return students[i + 1];
+                else if (i == students.length - 1)
+                    return null;
+        }
         return null;
 	}
 }
